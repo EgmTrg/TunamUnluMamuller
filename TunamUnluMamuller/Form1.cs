@@ -15,7 +15,6 @@ namespace TunamUnluMamuller
         public Form1()
         {
             InitializeComponent();
-            label1.Text = Application.ProductVersion.ToString();
         }
     }
 }
