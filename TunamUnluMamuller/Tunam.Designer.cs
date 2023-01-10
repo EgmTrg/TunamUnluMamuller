@@ -181,7 +181,7 @@
             this.MinimumSize = new System.Drawing.Size(835, 450);
             this.Name = "Tunam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tunam Unlu Mamuller";
+            this.Text = "Tunam-Unlu-Mamuller";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Tunam_FormClosing);
             this.main_panel.ResumeLayout(false);
             this.main_panel.PerformLayout();

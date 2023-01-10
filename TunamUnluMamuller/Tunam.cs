@@ -1,6 +1,8 @@
 ﻿using TunamUnluMamuller.Branches;
 using System.Windows.Forms;
 using System;
+using System.Runtime.ConstrainedExecution;
+using System.Reflection;
 
 namespace TunamUnluMamuller
 {
