@@ -26,15 +26,15 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://raw.githubusercontent.com/EgmTrg/TunamUnluMamuller/master/published/.gitattributes/</InstallUrl>
-    <UpdateUrl>https://raw.githubusercontent.com/EgmTrg/TunamUnluMamuller/master/published/</UpdateUrl>
+    <InstallUrl>https://raw.githubusercontent.com/EgmTrg/TunamUnluMamuller/Publish/published/.gitattributes/</InstallUrl>
+    <UpdateUrl>https://raw.githubusercontent.com/EgmTrg/TunamUnluMamuller/Publish/published/</UpdateUrl>
     <SupportUrl>https://github.com/EgmTrg</SupportUrl>
     <ProductName>TunamUnluMamuller</ProductName>
     <PublisherName>EgmTrg</PublisherName>
     <SuiteName>TunamUnluMamuller</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>20</ApplicationRevision>
     <ApplicationVersion>0.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
