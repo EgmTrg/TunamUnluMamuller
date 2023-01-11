@@ -197,5 +197,11 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Selenium.WebDriver.4.7.0\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.4.7.0\build\Selenium.WebDriver.targets'))" />
+<<<<<<< HEAD
   </Target>
+=======
+    <Error Condition="!Exists('packages\Selenium.WebDriver.ChromeDriver.108.0.5359.7100\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.ChromeDriver.108.0.5359.7100\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+  </Target>
+  <Import Project="packages\Selenium.WebDriver.ChromeDriver.108.0.5359.7100\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('packages\Selenium.WebDriver.ChromeDriver.108.0.5359.7100\build\Selenium.WebDriver.ChromeDriver.targets')" />
+>>>>>>> 21430ca39ebb92c13d56e3217d1661c65a42672d
 </Project>
