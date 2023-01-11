@@ -83,10 +83,5 @@ namespace TunamUnluMamuller {
             Application.Exit();
         }
         #endregion
-
-        private void tarayiciyiGösterToolStripMenuItem_Click(object sender, EventArgs e) {
-            tarayiciyiGösterToolStripMenuItem.Checked = !tarayiciyiGösterToolStripMenuItem.Checked;
-            MessageBox.Show(tarayiciyiGösterToolStripMenuItem.Checked.ToString());
-        }
     }
 }

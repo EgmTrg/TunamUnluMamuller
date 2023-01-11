@@ -155,7 +155,7 @@ namespace TunamUnluMamuller
             }
         }
 
-        #region idk Fields
+        #region WebMethods
         public virtual bool Start(Informations info)
         {
             driver.Navigate().GoToUrl(info.Login_URL);
@@ -259,7 +259,7 @@ namespace TunamUnluMamuller
                     if (Output_DataGridView.Columns.Count < 4)
                     {
                         string[] header = tr_Elements[0].Text.Split(' ');
-                        Output_DataGridView.Columns.Add("", "");
+                        Output_DataGridView.Columns.Add("bayiAdı_Column", "BAYİ ADI");
                         for (int i = 0; i < header.Length; i++)
                         {
                             if (header[i] == "SİPARİŞ" || header[i] == "ONAY")

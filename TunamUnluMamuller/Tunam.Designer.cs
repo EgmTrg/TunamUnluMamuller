@@ -39,12 +39,8 @@
             this.exportToExcel_button = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.run_button = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ayarlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tarayiciyiGösterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_panel
@@ -62,9 +58,9 @@
             this.main_panel.Controls.Add(this.exportToExcel_button);
             this.main_panel.Controls.Add(this.dataGridView1);
             this.main_panel.Controls.Add(this.run_button);
-            this.main_panel.Location = new System.Drawing.Point(0, 48);
+            this.main_panel.Location = new System.Drawing.Point(0, 0);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(811, 357);
+            this.main_panel.Size = new System.Drawing.Size(811, 405);
             this.main_panel.TabIndex = 0;
             // 
             // richTextBox1
@@ -73,7 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.richTextBox1.Location = new System.Drawing.Point(11, 204);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(306, 145);
+            this.richTextBox1.Size = new System.Drawing.Size(306, 193);
             this.richTextBox1.TabIndex = 30;
             this.richTextBox1.Text = "";
             // 
@@ -162,7 +158,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(323, 15);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(483, 382);
             this.dataGridView1.TabIndex = 22;
             // 
             // run_button
@@ -176,40 +172,12 @@
             this.run_button.UseVisualStyleBackColor = true;
             this.run_button.Click += new System.EventHandler(this.run_button_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ayarlarToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(819, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // ayarlarToolStripMenuItem
-            // 
-            this.ayarlarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tarayiciyiGösterToolStripMenuItem});
-            this.ayarlarToolStripMenuItem.Name = "ayarlarToolStripMenuItem";
-            this.ayarlarToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.ayarlarToolStripMenuItem.Text = "Ayarlar";
-            // 
-            // tarayiciyiGösterToolStripMenuItem
-            // 
-            this.tarayiciyiGösterToolStripMenuItem.Checked = true;
-            this.tarayiciyiGösterToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tarayiciyiGösterToolStripMenuItem.Name = "tarayiciyiGösterToolStripMenuItem";
-            this.tarayiciyiGösterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tarayiciyiGösterToolStripMenuItem.Click += new System.EventHandler(this.tarayiciyiGösterToolStripMenuItem_Click);
-            // 
             // Tunam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 411);
             this.Controls.Add(this.main_panel);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(835, 450);
             this.Name = "Tunam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -219,10 +187,7 @@
             this.main_panel.ResumeLayout(false);
             this.main_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -239,9 +204,6 @@
         private System.Windows.Forms.Button exportToExcel_button;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button run_button;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ayarlarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tarayiciyiGösterToolStripMenuItem;
     }
 }
 
