@@ -1,15 +1,11 @@
 ﻿using System.Windows.Forms;
 
-namespace TunamUnluMamuller.Branches
-{
-    internal class DilimBorek : Web, IBranch
-    {
+namespace TunamUnluMamuller.Branches {
+    internal class DilimBorek : Web, IBranch {
         public DilimBorek(Informations informations) : base(informations.DataGridView) { }
 
-        public static Informations Get_Informations(DataGridView dataGridView, RichTextBox richTextBox, string order_date)
-        {
-            return new DilimBorek.Informations
-            {
+        public static Informations Get_Informations(DataGridView dataGridView, RichTextBox richTextBox, string order_date) {
+            return new DilimBorek.Informations {
                 Branch = Branch.DilimBorek,
                 DataGridView = dataGridView,
                 RichTextBox = richTextBox,

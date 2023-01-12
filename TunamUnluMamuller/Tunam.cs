@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System;
 using System.Diagnostics;
+using TunamUnluMamuller.Settings;
 
 namespace TunamUnluMamuller {
     public partial class Tunam : Form {
@@ -14,6 +15,9 @@ namespace TunamUnluMamuller {
 
         private void Tunam_Load(object sender, EventArgs e) {
             IsExistChromeDriver();
+            currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: " + AppSettings.Current_User;
+            AppSettings.ShowBrowser = CheckState.Checked;
+            AppSettings.ShowCMD = CheckState.Unchecked;
         }
 
         private void Tunam_FormClosing(object sender, FormClosingEventArgs e) {
@@ -64,6 +68,18 @@ namespace TunamUnluMamuller {
             ExcelOperations.ExportWithExcel(dataGridView1);
             MessageBox.Show("Excel aktarımı başarıyla tamamlanmıştır.", "Dışa Aktar!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void SettingsCheckStateController_CheckStateChanged(object sender, EventArgs e) {
+            var item = sender as ToolStripMenuItem;
+            switch (item.AccessibleName) {
+                case "Browser":
+                    AppSettings.ShowBrowser = item.CheckState;
+                    break;
+                case "Cmd":
+                    AppSettings.ShowCMD = item.CheckState;
+                    break;
+            }
+        }
         #endregion
 
         #region Methods
@@ -83,5 +99,14 @@ namespace TunamUnluMamuller {
             Application.Exit();
         }
         #endregion
+
+        private void settings_ToolStripMenuItem_Click(object sender, EventArgs e) {
+            var item = sender as ToolStripMenuItem;
+            if (item.CheckState == CheckState.Unchecked) {
+                item.CheckState = CheckState.Checked;
+            } else {
+                item.CheckState = CheckState.Unchecked;
+            }
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿namespace TunamUnluMamuller.Branches
-{
-    internal interface IBranch
-    {
+﻿namespace TunamUnluMamuller.Branches {
+    internal interface IBranch {
     }
 }

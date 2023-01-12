@@ -39,8 +39,15 @@
             this.exportToExcel_button = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.run_button = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.currentUser_toolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.settings_toolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.settings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showBrowser_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showCMD_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_panel
@@ -58,9 +65,9 @@
             this.main_panel.Controls.Add(this.exportToExcel_button);
             this.main_panel.Controls.Add(this.dataGridView1);
             this.main_panel.Controls.Add(this.run_button);
-            this.main_panel.Location = new System.Drawing.Point(0, 0);
+            this.main_panel.Location = new System.Drawing.Point(0, 23);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(811, 405);
+            this.main_panel.Size = new System.Drawing.Size(811, 382);
             this.main_panel.TabIndex = 0;
             // 
             // richTextBox1
@@ -69,7 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.richTextBox1.Location = new System.Drawing.Point(11, 204);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(306, 193);
+            this.richTextBox1.Size = new System.Drawing.Size(306, 170);
             this.richTextBox1.TabIndex = 30;
             this.richTextBox1.Text = "";
             // 
@@ -158,7 +165,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(323, 15);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 382);
+            this.dataGridView1.Size = new System.Drawing.Size(483, 359);
             this.dataGridView1.TabIndex = 22;
             // 
             // run_button
@@ -172,11 +179,69 @@
             this.run_button.UseVisualStyleBackColor = true;
             this.run_button.Click += new System.EventHandler(this.run_button_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.currentUser_toolStripLabel,
+            this.settings_toolStripDropDownButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(819, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // currentUser_toolStripLabel
+            // 
+            this.currentUser_toolStripLabel.Name = "currentUser_toolStripLabel";
+            this.currentUser_toolStripLabel.Size = new System.Drawing.Size(97, 22);
+            this.currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: ";
+            // 
+            // settings_toolStripDropDownButton
+            // 
+            this.settings_toolStripDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.settings_toolStripDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settings_ToolStripMenuItem});
+            this.settings_toolStripDropDownButton.Image = global::TunamUnluMamuller.Properties.Resources.settings_png;
+            this.settings_toolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.settings_toolStripDropDownButton.Name = "settings_toolStripDropDownButton";
+            this.settings_toolStripDropDownButton.Size = new System.Drawing.Size(29, 22);
+            this.settings_toolStripDropDownButton.Text = "toolStripDropDownButton1";
+            // 
+            // settings_ToolStripMenuItem
+            // 
+            this.settings_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showBrowser_ToolStripMenuItem,
+            this.showCMD_ToolStripMenuItem});
+            this.settings_ToolStripMenuItem.Name = "settings_ToolStripMenuItem";
+            this.settings_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settings_ToolStripMenuItem.Text = "Ayarlar";
+            // 
+            // showBrowser_ToolStripMenuItem
+            // 
+            this.showBrowser_ToolStripMenuItem.AccessibleName = "Browser";
+            this.showBrowser_ToolStripMenuItem.Checked = true;
+            this.showBrowser_ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showBrowser_ToolStripMenuItem.Name = "showBrowser_ToolStripMenuItem";
+            this.showBrowser_ToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.showBrowser_ToolStripMenuItem.Text = "Tarayıcıyı Göster";
+            this.showBrowser_ToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.SettingsCheckStateController_CheckStateChanged);
+            this.showBrowser_ToolStripMenuItem.Click += new System.EventHandler(this.settings_ToolStripMenuItem_Click);
+            // 
+            // showCMD_ToolStripMenuItem
+            // 
+            this.showCMD_ToolStripMenuItem.AccessibleName = "Cmd";
+            this.showCMD_ToolStripMenuItem.Name = "showCMD_ToolStripMenuItem";
+            this.showCMD_ToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.showCMD_ToolStripMenuItem.Text = "CMD Ekranını Göster";
+            this.showCMD_ToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.SettingsCheckStateController_CheckStateChanged);
+            this.showCMD_ToolStripMenuItem.Click += new System.EventHandler(this.settings_ToolStripMenuItem_Click);
+            // 
             // Tunam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 411);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.main_panel);
             this.MinimumSize = new System.Drawing.Size(835, 450);
             this.Name = "Tunam";
@@ -187,7 +252,10 @@
             this.main_panel.ResumeLayout(false);
             this.main_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -204,6 +272,12 @@
         private System.Windows.Forms.Button exportToExcel_button;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button run_button;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripDropDownButton settings_toolStripDropDownButton;
+        private System.Windows.Forms.ToolStripMenuItem settings_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showBrowser_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showCMD_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripLabel currentUser_toolStripLabel;
     }
 }
 
