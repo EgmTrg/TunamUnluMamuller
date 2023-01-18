@@ -1,7 +1,7 @@
-﻿using TunamUnluMamuller.Branches;
-using System.Windows.Forms;
-using System;
+﻿using System;
 using System.Diagnostics;
+using System.Windows.Forms;
+using TunamUnluMamuller.Branches;
 using TunamUnluMamuller.Settings;
 
 namespace TunamUnluMamuller {

@@ -40,11 +40,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.run_button = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.currentUser_toolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.settings_toolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.settings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showBrowser_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showCMD_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.currentUser_toolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -190,12 +190,6 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // currentUser_toolStripLabel
-            // 
-            this.currentUser_toolStripLabel.Name = "currentUser_toolStripLabel";
-            this.currentUser_toolStripLabel.Size = new System.Drawing.Size(97, 22);
-            this.currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: ";
-            // 
             // settings_toolStripDropDownButton
             // 
             this.settings_toolStripDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -219,8 +213,6 @@
             // showBrowser_ToolStripMenuItem
             // 
             this.showBrowser_ToolStripMenuItem.AccessibleName = "Browser";
-            this.showBrowser_ToolStripMenuItem.Checked = true;
-            this.showBrowser_ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.showBrowser_ToolStripMenuItem.Name = "showBrowser_ToolStripMenuItem";
             this.showBrowser_ToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.showBrowser_ToolStripMenuItem.Text = "Tarayıcıyı Göster";
@@ -235,6 +227,12 @@
             this.showCMD_ToolStripMenuItem.Text = "CMD Ekranını Göster";
             this.showCMD_ToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.SettingsCheckStateController_CheckStateChanged);
             this.showCMD_ToolStripMenuItem.Click += new System.EventHandler(this.settings_ToolStripMenuItem_Click);
+            // 
+            // currentUser_toolStripLabel
+            // 
+            this.currentUser_toolStripLabel.Name = "currentUser_toolStripLabel";
+            this.currentUser_toolStripLabel.Size = new System.Drawing.Size(97, 22);
+            this.currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: ";
             // 
             // Tunam
             // 
