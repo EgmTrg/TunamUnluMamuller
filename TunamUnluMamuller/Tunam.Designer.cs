@@ -182,8 +182,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.currentUser_toolStripLabel,
-            this.settings_toolStripDropDownButton});
+            this.settings_toolStripDropDownButton,
+            this.currentUser_toolStripLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(819, 25);

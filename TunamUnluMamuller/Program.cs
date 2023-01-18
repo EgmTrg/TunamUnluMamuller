@@ -13,7 +13,7 @@ namespace TunamUnluMamuller
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Tunam());
+            Application.Run(new Login());
         }
     }
 }

@@ -22,6 +22,7 @@ namespace TunamUnluMamuller {
 
         private void Tunam_FormClosing(object sender, FormClosingEventArgs e) {
             web?.Quit();
+            Application.Exit();
         }
 
         #region ButtonEvents
