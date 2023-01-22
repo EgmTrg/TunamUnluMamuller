@@ -45,6 +45,10 @@
             this.showBrowser_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showCMD_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.currentUser_toolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.status_label = new System.Windows.Forms.Label();
+            this.musluoğluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.istanbulBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ankaraBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -55,6 +59,7 @@
             this.main_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.main_panel.Controls.Add(this.status_label);
             this.main_panel.Controls.Add(this.richTextBox1);
             this.main_panel.Controls.Add(this.dateTimePicker1);
             this.main_panel.Controls.Add(this.label2);
@@ -194,7 +199,8 @@
             // 
             this.settings_toolStripDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.settings_toolStripDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settings_ToolStripMenuItem});
+            this.settings_ToolStripMenuItem,
+            this.musluoğluToolStripMenuItem});
             this.settings_toolStripDropDownButton.Image = global::TunamUnluMamuller.Properties.Resources.settings_png;
             this.settings_toolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.settings_toolStripDropDownButton.Name = "settings_toolStripDropDownButton";
@@ -213,6 +219,7 @@
             // showBrowser_ToolStripMenuItem
             // 
             this.showBrowser_ToolStripMenuItem.AccessibleName = "Browser";
+            this.showBrowser_ToolStripMenuItem.Enabled = false;
             this.showBrowser_ToolStripMenuItem.Name = "showBrowser_ToolStripMenuItem";
             this.showBrowser_ToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.showBrowser_ToolStripMenuItem.Text = "Tarayıcıyı Göster";
@@ -234,13 +241,55 @@
             this.currentUser_toolStripLabel.Size = new System.Drawing.Size(97, 22);
             this.currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: ";
             // 
+            // status_label
+            // 
+            this.status_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.status_label.Font = new System.Drawing.Font("Constantia", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_label.ForeColor = System.Drawing.Color.Red;
+            this.status_label.Location = new System.Drawing.Point(424, 112);
+            this.status_label.Name = "status_label";
+            this.status_label.Size = new System.Drawing.Size(276, 149);
+            this.status_label.TabIndex = 31;
+            this.status_label.Text = "APPLICATION STATUS";
+            this.status_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.status_label.Visible = false;
+            // 
+            // musluoğluToolStripMenuItem
+            // 
+            this.musluoğluToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.istanbulBayileriniDahilEtToolStripMenuItem,
+            this.ankaraBayileriniDahilEtToolStripMenuItem});
+            this.musluoğluToolStripMenuItem.Name = "musluoğluToolStripMenuItem";
+            this.musluoğluToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.musluoğluToolStripMenuItem.Text = "Musluoğlu";
+            // 
+            // istanbulBayileriniDahilEtToolStripMenuItem
+            // 
+            this.istanbulBayileriniDahilEtToolStripMenuItem.AccessibleName = "IstanbulMuslu";
+            this.istanbulBayileriniDahilEtToolStripMenuItem.Enabled = false;
+            this.istanbulBayileriniDahilEtToolStripMenuItem.Name = "istanbulBayileriniDahilEtToolStripMenuItem";
+            this.istanbulBayileriniDahilEtToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.istanbulBayileriniDahilEtToolStripMenuItem.Text = "İstanbul bayilerini dahil et";
+            this.istanbulBayileriniDahilEtToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.SettingsCheckStateController_CheckStateChanged);
+            this.istanbulBayileriniDahilEtToolStripMenuItem.Click += new System.EventHandler(this.settings_ToolStripMenuItem_Click);
+            // 
+            // ankaraBayileriniDahilEtToolStripMenuItem
+            // 
+            this.ankaraBayileriniDahilEtToolStripMenuItem.AccessibleName = "AnkaraMuslu";
+            this.ankaraBayileriniDahilEtToolStripMenuItem.Enabled = false;
+            this.ankaraBayileriniDahilEtToolStripMenuItem.Name = "ankaraBayileriniDahilEtToolStripMenuItem";
+            this.ankaraBayileriniDahilEtToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.ankaraBayileriniDahilEtToolStripMenuItem.Text = "Ankara bayilerini dahil et";
+            this.ankaraBayileriniDahilEtToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.SettingsCheckStateController_CheckStateChanged);
+            this.ankaraBayileriniDahilEtToolStripMenuItem.Click += new System.EventHandler(this.settings_ToolStripMenuItem_Click);
+            // 
             // Tunam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 411);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.main_panel);
+            this.Controls.Add(this.toolStrip1);
             this.MinimumSize = new System.Drawing.Size(835, 450);
             this.Name = "Tunam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -276,6 +325,10 @@
         private System.Windows.Forms.ToolStripMenuItem showBrowser_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showCMD_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripLabel currentUser_toolStripLabel;
+        private System.Windows.Forms.Label status_label;
+        private System.Windows.Forms.ToolStripMenuItem musluoğluToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem istanbulBayileriniDahilEtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ankaraBayileriniDahilEtToolStripMenuItem;
     }
 }
 

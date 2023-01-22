@@ -9,7 +9,7 @@ namespace TunamUnluMamuller {
             int row = 1;
             Excel.Application excel_App = new Excel.Application();
             excel_App.Workbooks.Add();
-            excel_App.Visible = true;
+            excel_App.Visible = false;
             excel_App.Worksheets[1].Activate();
 
             for (int i = 0; i < dataGrid.Columns.Count; i++) {
@@ -28,6 +28,7 @@ namespace TunamUnluMamuller {
                     excel_App.Cells[row + i, column + k].Value = dataGrid[k, i].Value;
                 }
             }
+            excel_App.Visible = true;
         }
     }
 }

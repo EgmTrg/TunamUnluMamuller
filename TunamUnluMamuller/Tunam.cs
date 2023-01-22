@@ -1,23 +1,27 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows.Forms;
-using TunamUnluMamuller.Branches;
+﻿using TunamUnluMamuller.Branches;
 using TunamUnluMamuller.Settings;
+using System.Windows.Forms;
+using System.Diagnostics;
+using System;
 
 namespace TunamUnluMamuller {
     public partial class Tunam : Form {
+
         private Web.Informations webInfo;
         private Web web;
 
         public Tunam() {
             InitializeComponent();
+            if (AppSettings.Current_User == "EGEMEN") {
+                istanbulBayileriniDahilEtToolStripMenuItem.Enabled = true;
+                ankaraBayileriniDahilEtToolStripMenuItem.Enabled = true;
+                showBrowser_ToolStripMenuItem.Enabled = true;
+            }
         }
 
         private void Tunam_Load(object sender, EventArgs e) {
             IsExistChromeDriver();
             currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: " + AppSettings.Current_User;
-            AppSettings.ShowBrowser = CheckState.Checked;
-            AppSettings.ShowCMD = CheckState.Unchecked;
         }
 
         private void Tunam_FormClosing(object sender, FormClosingEventArgs e) {
@@ -25,12 +29,17 @@ namespace TunamUnluMamuller {
             Application.Exit();
         }
 
+
+        #region Events
+
         #region ButtonEvents
         private void run_button_Click(object sender, EventArgs e) {
             if (!dilimBorek_radioButton.Checked && !musluoglu_radioButton.Checked) {
                 MessageBox.Show("Dilim Börek ya da Musluoğlu markalarından birini seçiniz!", "Marka Seç", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
+            ChangeStatus(true);
 
             clear_button.PerformClick();
             string order_date = dateTimePicker1.Value.AddDays(-1).ToShortDateString();
@@ -52,6 +61,8 @@ namespace TunamUnluMamuller {
                 MessageBox.Show("Veri çekme işlemi başarıyla tamamlanmıştır.", "Verileri Çek!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Veri çekme işlemi bir hata sonucu tamamlanamadi.", "Verileri Çek!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            ChangeStatus(false);
         }
 
         private void clear_button_Click(object sender, EventArgs e) {
@@ -66,10 +77,14 @@ namespace TunamUnluMamuller {
                 "MS Office Excel",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            ChangeStatus(true);
             ExcelOperations.ExportWithExcel(dataGridView1);
             MessageBox.Show("Excel aktarımı başarıyla tamamlanmıştır.", "Dışa Aktar!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ChangeStatus(false);
         }
+        #endregion
 
+        #region ToolStrip Events
         private void SettingsCheckStateController_CheckStateChanged(object sender, EventArgs e) {
             var item = sender as ToolStripMenuItem;
             switch (item.AccessibleName) {
@@ -79,8 +94,19 @@ namespace TunamUnluMamuller {
                 case "Cmd":
                     AppSettings.ShowCMD = item.CheckState;
                     break;
+                case "IstanbulMuslu":
+                    MessageBox.Show("Henuz aktif degil");
+                    break;
+                case "AnkaraMuslu":
+                    MessageBox.Show("Henuz aktif degil");
+                    break;
             }
         }
+
+        private void settings_ToolStripMenuItem_Click(object sender, EventArgs e) =>
+            (sender as ToolStripMenuItem).Checked = !(sender as ToolStripMenuItem).Checked;
+        #endregion
+
         #endregion
 
         #region Methods
@@ -99,15 +125,11 @@ namespace TunamUnluMamuller {
             }
             Application.Exit();
         }
-        #endregion
 
-        private void settings_ToolStripMenuItem_Click(object sender, EventArgs e) {
-            var item = sender as ToolStripMenuItem;
-            if (item.CheckState == CheckState.Unchecked) {
-                item.CheckState = CheckState.Checked;
-            } else {
-                item.CheckState = CheckState.Unchecked;
-            }
+        private void ChangeStatus(bool visibleValue, string statusText = "LÜTFEN BEKLEYİN. VERİLER İŞLENİYOR...") {
+            status_label.Visible = visibleValue;
+            status_label.Text = statusText;
         }
+        #endregion
     }
 }

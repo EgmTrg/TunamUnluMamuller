@@ -7,12 +7,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TunamUnluMamuller")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Dilim Börek ve Musluoğlu markalarına ait olan, bünye ve franchise fark etmeksizin tüm siparişleri gerekli website otomasyonundan okuyup harici bir programdan çıktısını vermeyi sağlayan uygulamadır.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("TunamUnluMamuller")]
 [assembly: AssemblyProduct("TunamUnluMamuller")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("EgmTrg")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.1")]
+[assembly: AssemblyFileVersion("1.0.0.1")]
 [assembly: NeutralResourcesLanguage("tr-TR")]
