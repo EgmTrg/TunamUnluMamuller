@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.main_panel = new System.Windows.Forms.Panel();
+            this.status_label = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,11 +45,10 @@
             this.settings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showBrowser_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showCMD_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.currentUser_toolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.status_label = new System.Windows.Forms.Label();
             this.musluoğluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.istanbulBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ankaraBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.currentUser_toolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -74,6 +74,19 @@
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(811, 382);
             this.main_panel.TabIndex = 0;
+            // 
+            // status_label
+            // 
+            this.status_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.status_label.Font = new System.Drawing.Font("Constantia", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_label.ForeColor = System.Drawing.Color.Red;
+            this.status_label.Location = new System.Drawing.Point(424, 112);
+            this.status_label.Name = "status_label";
+            this.status_label.Size = new System.Drawing.Size(276, 149);
+            this.status_label.TabIndex = 31;
+            this.status_label.Text = "APPLICATION STATUS";
+            this.status_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.status_label.Visible = false;
             // 
             // richTextBox1
             // 
@@ -213,7 +226,7 @@
             this.showBrowser_ToolStripMenuItem,
             this.showCMD_ToolStripMenuItem});
             this.settings_ToolStripMenuItem.Name = "settings_ToolStripMenuItem";
-            this.settings_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settings_ToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.settings_ToolStripMenuItem.Text = "Ayarlar";
             // 
             // showBrowser_ToolStripMenuItem
@@ -235,32 +248,13 @@
             this.showCMD_ToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.SettingsCheckStateController_CheckStateChanged);
             this.showCMD_ToolStripMenuItem.Click += new System.EventHandler(this.settings_ToolStripMenuItem_Click);
             // 
-            // currentUser_toolStripLabel
-            // 
-            this.currentUser_toolStripLabel.Name = "currentUser_toolStripLabel";
-            this.currentUser_toolStripLabel.Size = new System.Drawing.Size(97, 22);
-            this.currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: ";
-            // 
-            // status_label
-            // 
-            this.status_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.status_label.Font = new System.Drawing.Font("Constantia", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_label.ForeColor = System.Drawing.Color.Red;
-            this.status_label.Location = new System.Drawing.Point(424, 112);
-            this.status_label.Name = "status_label";
-            this.status_label.Size = new System.Drawing.Size(276, 149);
-            this.status_label.TabIndex = 31;
-            this.status_label.Text = "APPLICATION STATUS";
-            this.status_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.status_label.Visible = false;
-            // 
             // musluoğluToolStripMenuItem
             // 
             this.musluoğluToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.istanbulBayileriniDahilEtToolStripMenuItem,
             this.ankaraBayileriniDahilEtToolStripMenuItem});
             this.musluoğluToolStripMenuItem.Name = "musluoğluToolStripMenuItem";
-            this.musluoğluToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.musluoğluToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.musluoğluToolStripMenuItem.Text = "Musluoğlu";
             // 
             // istanbulBayileriniDahilEtToolStripMenuItem
@@ -283,6 +277,12 @@
             this.ankaraBayileriniDahilEtToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.SettingsCheckStateController_CheckStateChanged);
             this.ankaraBayileriniDahilEtToolStripMenuItem.Click += new System.EventHandler(this.settings_ToolStripMenuItem_Click);
             // 
+            // currentUser_toolStripLabel
+            // 
+            this.currentUser_toolStripLabel.Name = "currentUser_toolStripLabel";
+            this.currentUser_toolStripLabel.Size = new System.Drawing.Size(97, 22);
+            this.currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: ";
+            // 
             // Tunam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,7 +293,7 @@
             this.MinimumSize = new System.Drawing.Size(835, 450);
             this.Name = "Tunam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tunam-Unlu-Mamuller";
+            this.Text = "Tunam Unlu Mamüller Sipariş Yöneticisi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Tunam_FormClosing);
             this.Load += new System.EventHandler(this.Tunam_Load);
             this.main_panel.ResumeLayout(false);
