@@ -10,6 +10,7 @@ namespace TunamUnluMamuller {
     internal abstract class Web {
         public Web(DataGridView dataGridView) => SetupWebDriver(dataGridView);
 
+        protected void Sleep() => Thread.Sleep(1500);
         protected void Sleep(int delay) => Thread.Sleep(delay);
 
         public const string TABLE_XPATH = "//*[@id=\"example\"]";
@@ -144,11 +145,11 @@ namespace TunamUnluMamuller {
         public virtual bool Start(Informations info) {
             driver.Navigate().GoToUrl(info.Login_URL);
             Login(info.Username, info.Password);
-            Sleep(2000);
+            Sleep();
 
             driver.Navigate().GoToUrl(info.Reports_URL);
 
-            Sleep(2000);
+            Sleep();
 
             bool result = DropDown_Operations("//*[@id=\"getir\"]/div[1]/div[2]/select", info.RichTextBox);
             return result;
@@ -156,7 +157,7 @@ namespace TunamUnluMamuller {
 
         private void Login(string username, string password) {
             //WebDriverWait
-            Thread.Sleep(2000);
+            Sleep();
             Driver.FindElement(By.Name("kadi")).SendKeys(username);
             Driver.FindElement(By.Name("sifre")).SendKeys(password);
             Driver.FindElement(By.XPath("//*[@id=\"validate-form\"]/div[3]/div/button")).Click();
@@ -169,7 +170,7 @@ namespace TunamUnluMamuller {
                 IWebElement bringData_Button = Driver.FindElement(By.XPath("//*[@id=\"getir\"]/div[4]/button"));
                 Driver.FindElement(By.Name("tarih")).SendKeys(ORDER_DATE);
                 Driver.FindElement(By.Name("tarih2")).SendKeys(ORDER_DATE);
-
+                
                 for (int branch_index = 1; branch_index <= dropDown.Options.Count; branch_index++) {
                     try {
                         lastSelectedBranch = dropDown.SelectedOption.Text;
@@ -177,18 +178,19 @@ namespace TunamUnluMamuller {
                         bringData_Button.Click();
                         Sleep(1000);
                         IWebElement no_Order_Button = Driver.FindElement(By.XPath("/html/body/div[6]/div[7]/div/button"));
+                        Sleep(500);
                         if (no_Order_Button.Displayed) {
                             richTextBox.Text += dropDown.SelectedOption.Text + "\n\n";
                             no_Order_Button.Click();
                         }
                         no_Order_Button.Click();
                     } catch (System.Exception) {
-                        Sleep(1000);
+                        Sleep();
                         if (lastSelectedBranch != dropDown.SelectedOption.Text) {
                             Table_Operations(TABLE_XPATH, dropDown.SelectedOption.Text);
                         }
                     }
-                    Sleep(1000);
+                    Sleep();
                 }
             } catch (System.Exception e) {
                 MessageBox.Show(e.Message.ToString());

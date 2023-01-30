@@ -61,6 +61,7 @@
             this.password_maskedTextBox.PasswordChar = '*';
             this.password_maskedTextBox.Size = new System.Drawing.Size(201, 31);
             this.password_maskedTextBox.TabIndex = 2;
+            this.password_maskedTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.password_maskedTextBox_KeyDown);
             // 
             // login_button
             // 

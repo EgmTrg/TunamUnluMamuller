@@ -21,8 +21,8 @@ namespace TunamUnluMamuller.Branches {
                 Password = "muslu",
                 OrderDate = order_date,
 
-                Istanbul = AppSettings.TextFile.DetectIstanbulMusluoglu(),
-                Ankara = AppSettings.TextFile.DetectAnkaraMusluoglu()
+                Istanbul = AppSettings.Istanbul_Musluoglu,
+                Ankara = AppSettings.Ankara_Musluoglu
             };
         }
     }

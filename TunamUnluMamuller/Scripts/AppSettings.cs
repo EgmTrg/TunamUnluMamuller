@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using TunamUnluMamuller.Properties;
 
 namespace TunamUnluMamuller.Settings {
     internal static class AppSettings {
@@ -15,23 +12,23 @@ namespace TunamUnluMamuller.Settings {
         public static List<string> Ankara_Musluoglu { get; set; }
 
         public static readonly Dictionary<string, string> Users = new Dictionary<string, string>() {
-            {"admin","1793" },
+            {"admin","1234" },
             {"egemen","789" },
-            {"ugur","123" },
         };
 
-        public static class TextFile {
-            public static string Settings_TXTPath { get { return "..\\..\\settings.txt"; } }
+        public static class SettingsFromResources {
+            //public static string Settings_TXTPath { get { return "..\\..\\settings.txt"; } }
             public enum Setting_Type { Username, Password }
             public static Setting_Type setting_Type { get; set; }
 
-            public static string[] ReadText() {
-                string[] rows = File.ReadAllLines(Settings_TXTPath, Encoding.UTF8);
-                return rows;
+            public static void IstanbulAnkaraBranches() {
+                Istanbul_Musluoglu = Resources.Istanbul.Split(' ').ToList();
+                Istanbul_Musluoglu = Resources.Ankara.Split(' ').ToList();
             }
 
-            internal static List<string> DetectIstanbulMusluoglu() {
-                string[] rows = ReadText();
+
+            /*internal static List<string> DetectIstanbulMusluoglu() {
+                string[] rows = IstanbulAnkaraBranches();
                 List<string> istanbul = new List<string>();
 
                 // ISTANBUL
@@ -45,7 +42,7 @@ namespace TunamUnluMamuller.Settings {
             }
 
             internal static List<string> DetectAnkaraMusluoglu() {
-                string[] rows = ReadText();
+                string[] rows = IstanbulAnkaraBranches();
                 List<string> ankara = new List<string>();
 
                 // ANKARA
@@ -55,7 +52,7 @@ namespace TunamUnluMamuller.Settings {
                     }
                 }
 
-                ankara.AddRange(ankara);
+                //ankara.AddRange(ankara);
 
                 return ankara;
             }
@@ -69,9 +66,7 @@ namespace TunamUnluMamuller.Settings {
                     MessageBox.Show(e.Message);
                     throw;
                 }
-            }
-
-
+            }*/
         }
     }
 }

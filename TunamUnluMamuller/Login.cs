@@ -32,5 +32,11 @@ namespace TunamUnluMamuller {
         private void aboutApp_linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             new AboutBox().Show();
         }
+
+        private void password_maskedTextBox_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                login_button.PerformClick();
+            }
+        }
     }
 }

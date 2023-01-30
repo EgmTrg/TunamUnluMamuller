@@ -61,12 +61,30 @@ namespace TunamUnluMamuller.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Demetevler Necatibey Keçiören Kızılay Etlik.
+        /// </summary>
+        internal static string Ankara {
+            get {
+                return ResourceManager.GetString("Ankara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon icon {
             get {
                 object obj = ResourceManager.GetObject("icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Santral Sondurak Zetrinburnu Kadıköy Şirinevler Üsküdar SultanSelim Gaziosmanpaşa Sefaköy Çağlayan Atışalanı2 Bağcılar Çekmeköy Çapa Altıyol Beylikdüzü.
+        /// </summary>
+        internal static string Istanbul {
+            get {
+                return ResourceManager.GetString("Istanbul", resourceCulture);
             }
         }
         
