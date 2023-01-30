@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using TunamUnluMamuller.Settings;
 
 namespace TunamUnluMamuller.Branches {
     internal class Musluoglu : Web, IBranch {
@@ -18,7 +19,10 @@ namespace TunamUnluMamuller.Branches {
 
                 Username = "sistem@musluoglusiparis.com",
                 Password = "muslu",
-                OrderDate = order_date
+                OrderDate = order_date,
+
+                Istanbul = AppSettings.TextFile.DetectIstanbulMusluoglu(),
+                Ankara = AppSettings.TextFile.DetectAnkaraMusluoglu()
             };
         }
     }

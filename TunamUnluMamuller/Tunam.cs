@@ -49,7 +49,6 @@ namespace TunamUnluMamuller {
             else if (musluoglu_radioButton.Checked)
                 webInfo = Musluoglu.Get_Informations(dataGridView1, richTextBox1, order_date);
 
-
             if (webInfo.Branch == Web.Branch.DilimBorek)
                 web = new DilimBorek(webInfo);
             else if (webInfo.Branch == Web.Branch.Musluoglu)
@@ -72,15 +71,21 @@ namespace TunamUnluMamuller {
         }
 
         private void exportToExcel_button_Click(object sender, EventArgs e) {
-            MessageBox.Show(
+            DialogResult result = MessageBox.Show(
                 "Excel'e kopyalama işlemi, Microsoft Office Excel uygulamanız lisanslı değil ise hata verme ihtimali çok yüksektir.!",
                 "MS Office Excel",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            ChangeStatus(true);
-            ExcelOperations.ExportWithExcel(dataGridView1);
-            MessageBox.Show("Excel aktarımı başarıyla tamamlanmıştır.", "Dışa Aktar!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ChangeStatus(false);
+            if (result == DialogResult.OK) {
+                ChangeStatus(true);
+                if (dilimBorek_radioButton.Checked)
+                    ExcelOperations.ExportWithExcel(dataGridView1, ExcelOperations.Branches.DilimBorek);
+                else
+                    ExcelOperations.ExportWithExcel(dataGridView1, ExcelOperations.Branches.Musluoglu);
+                
+                MessageBox.Show("Excel aktarımı başarıyla tamamlanmıştır.", "Dışa Aktar!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ChangeStatus(false);
+            }
         }
         #endregion
 
@@ -131,5 +136,9 @@ namespace TunamUnluMamuller {
             status_label.Text = statusText;
         }
         #endregion
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
     }
 }

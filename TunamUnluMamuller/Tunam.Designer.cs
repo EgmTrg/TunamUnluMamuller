@@ -49,6 +49,7 @@
             this.istanbulBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ankaraBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.currentUser_toolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -132,7 +133,7 @@
             // 
             this.musluoglu_radioButton.AutoSize = true;
             this.musluoglu_radioButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.musluoglu_radioButton.Location = new System.Drawing.Point(174, 47);
+            this.musluoglu_radioButton.Location = new System.Drawing.Point(176, 47);
             this.musluoglu_radioButton.Name = "musluoglu_radioButton";
             this.musluoglu_radioButton.Size = new System.Drawing.Size(100, 27);
             this.musluoglu_radioButton.TabIndex = 26;
@@ -224,9 +225,10 @@
             // 
             this.settings_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showBrowser_ToolStripMenuItem,
-            this.showCMD_ToolStripMenuItem});
+            this.showCMD_ToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.settings_ToolStripMenuItem.Name = "settings_ToolStripMenuItem";
-            this.settings_ToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.settings_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settings_ToolStripMenuItem.Text = "Ayarlar";
             // 
             // showBrowser_ToolStripMenuItem
@@ -254,7 +256,7 @@
             this.istanbulBayileriniDahilEtToolStripMenuItem,
             this.ankaraBayileriniDahilEtToolStripMenuItem});
             this.musluoğluToolStripMenuItem.Name = "musluoğluToolStripMenuItem";
-            this.musluoğluToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.musluoğluToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.musluoğluToolStripMenuItem.Text = "Musluoğlu";
             // 
             // istanbulBayileriniDahilEtToolStripMenuItem
@@ -282,6 +284,13 @@
             this.currentUser_toolStripLabel.Name = "currentUser_toolStripLabel";
             this.currentUser_toolStripLabel.Size = new System.Drawing.Size(97, 22);
             this.currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: ";
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // Tunam
             // 
@@ -329,6 +338,7 @@
         private System.Windows.Forms.ToolStripMenuItem musluoğluToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem istanbulBayileriniDahilEtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ankaraBayileriniDahilEtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
     }
 }
 

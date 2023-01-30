@@ -85,7 +85,10 @@ namespace TunamUnluMamuller {
         #endregion
 
         public struct Informations {
-            private Branch myVar;
+            internal List<string> Istanbul;
+            internal List<string> Ankara;
+
+            private Branch myVar; 
             private DataGridView dataGrid;
             private RichTextBox richTextBox;
 
@@ -179,11 +182,9 @@ namespace TunamUnluMamuller {
                             no_Order_Button.Click();
                         }
                         no_Order_Button.Click();
-                    } catch (System.Exception e) {
-                        //MessageBox.Show(dropDown.SelectedOption.Text + " siparisi var.");
+                    } catch (System.Exception) {
                         Sleep(1000);
                         if (lastSelectedBranch != dropDown.SelectedOption.Text) {
-                            //MessageBox.Show("lastSelectedBranch = " + lastSelectedBranch + "    DropDown.Text = " + dropDown.SelectedOption.Text);
                             Table_Operations(TABLE_XPATH, dropDown.SelectedOption.Text);
                         }
                     }
