@@ -1,5 +1,5 @@
 ﻿using TunamUnluMamuller.Branches;
-using TunamUnluMamuller.Settings;
+using TunamUnluMamuller.Setting;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System;
@@ -16,6 +16,7 @@ namespace TunamUnluMamuller {
                 istanbulBayileriniDahilEtToolStripMenuItem.Enabled = true;
                 ankaraBayileriniDahilEtToolStripMenuItem.Enabled = true;
                 showBrowser_ToolStripMenuItem.Enabled = true;
+                testToolStripMenuItem.Enabled = true;
             }
         }
 
@@ -45,9 +46,9 @@ namespace TunamUnluMamuller {
             string order_date = dateTimePicker1.Value.AddDays(-1).ToShortDateString();
 
             if (dilimBorek_radioButton.Checked)
-                webInfo = DilimBorek.Get_Informations(dataGridView1, richTextBox1, order_date);
+                webInfo = DilimBorek.Set_Informations(dataGridView1, richTextBox1, order_date);
             else if (musluoglu_radioButton.Checked)
-                webInfo = Musluoglu.Get_Informations(dataGridView1, richTextBox1, order_date);
+                webInfo = Musluoglu.Set_Informations(dataGridView1, richTextBox1, order_date);
 
             if (webInfo.Branch == Web.Branch.DilimBorek)
                 web = new DilimBorek(webInfo);
@@ -138,7 +139,7 @@ namespace TunamUnluMamuller {
         #endregion
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            new Settings().Show();
         }
     }
 }

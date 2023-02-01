@@ -4,13 +4,13 @@ namespace TunamUnluMamuller.Branches {
     internal class DilimBorek : Web, IBranch {
         public DilimBorek(Informations informations) : base(informations.DataGridView) { }
 
-        public static Informations Get_Informations(DataGridView dataGridView, RichTextBox richTextBox, string order_date) {
+        public static Informations Set_Informations(DataGridView dataGridView, RichTextBox richTextBox, string order_date) {
             return new DilimBorek.Informations {
                 Branch = Branch.DilimBorek,
                 DataGridView = dataGridView,
                 RichTextBox = richTextBox,
-                Login_URL = Web.WebSites.DilimBorek_Giris_Url,
-                Reports_URL = Web.WebSites.DilimBorek_Reports_Url,
+                Login_URL = Web.WebSitesURLs.DilimBorek_Giris_Url,
+                Reports_URL = Web.WebSitesURLs.DilimBorek_Reports_Url,
 
                 Username = "admin",
                 Password = "dilim2016",

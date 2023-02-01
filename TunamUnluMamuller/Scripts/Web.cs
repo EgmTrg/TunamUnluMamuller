@@ -1,17 +1,14 @@
 ﻿using OpenQA.Selenium.Support.UI;
 using System.Collections.Generic;
+using TunamUnluMamuller.Setting;
+using TunamUnluMamuller.Scripts;
 using OpenQA.Selenium.Chrome;
 using System.Windows.Forms;
-using System.Threading;
 using OpenQA.Selenium;
-using TunamUnluMamuller.Settings;
 
 namespace TunamUnluMamuller {
     internal abstract class Web {
         public Web(DataGridView dataGridView) => SetupWebDriver(dataGridView);
-
-        protected void Sleep() => Thread.Sleep(1500);
-        protected void Sleep(int delay) => Thread.Sleep(delay);
 
         public const string TABLE_XPATH = "//*[@id=\"example\"]";
 
@@ -47,9 +44,8 @@ namespace TunamUnluMamuller {
         }
         #endregion
 
-        #region SetupField
 
-        public struct WebSites {
+        public struct WebSitesURLs {
             public static string DilimBorek_Giris_Url {
                 get { return "https://dilimboreksiparis.com/giris.php"; }
             }
@@ -66,6 +62,8 @@ namespace TunamUnluMamuller {
                 get { return "https://musluoglusiparis.com/raporlar"; }
             }
         }
+
+        #region SetupField
 
         public void SetupWebDriver(DataGridView dataGridView) {
             Output_DataGridView = dataGridView;
@@ -89,16 +87,17 @@ namespace TunamUnluMamuller {
             internal List<string> Istanbul;
             internal List<string> Ankara;
 
-            private Branch myVar; 
+            private Branch myVar;
             private DataGridView dataGrid;
             private RichTextBox richTextBox;
 
+            #region PrivProp
             private string username;
             private string password;
             private string login_url;
             private string reports_url;
-
             private string order_Date;
+            #endregion
 
             public string OrderDate {
                 get { return order_Date; }
@@ -145,11 +144,11 @@ namespace TunamUnluMamuller {
         public virtual bool Start(Informations info) {
             driver.Navigate().GoToUrl(info.Login_URL);
             Login(info.Username, info.Password);
-            Sleep();
+            Utility.Sleep();
 
             driver.Navigate().GoToUrl(info.Reports_URL);
 
-            Sleep();
+            Utility.Sleep();
 
             bool result = DropDown_Operations("//*[@id=\"getir\"]/div[1]/div[2]/select", info.RichTextBox);
             return result;
@@ -157,7 +156,7 @@ namespace TunamUnluMamuller {
 
         private void Login(string username, string password) {
             //WebDriverWait
-            Sleep();
+            Utility.Sleep();
             Driver.FindElement(By.Name("kadi")).SendKeys(username);
             Driver.FindElement(By.Name("sifre")).SendKeys(password);
             Driver.FindElement(By.XPath("//*[@id=\"validate-form\"]/div[3]/div/button")).Click();
@@ -170,27 +169,27 @@ namespace TunamUnluMamuller {
                 IWebElement bringData_Button = Driver.FindElement(By.XPath("//*[@id=\"getir\"]/div[4]/button"));
                 Driver.FindElement(By.Name("tarih")).SendKeys(ORDER_DATE);
                 Driver.FindElement(By.Name("tarih2")).SendKeys(ORDER_DATE);
-                
+
                 for (int branch_index = 1; branch_index <= dropDown.Options.Count; branch_index++) {
                     try {
                         lastSelectedBranch = dropDown.SelectedOption.Text;
                         dropDown.SelectByIndex(branch_index);
                         bringData_Button.Click();
-                        Sleep(1000);
+                        Utility.Sleep(1000);
                         IWebElement no_Order_Button = Driver.FindElement(By.XPath("/html/body/div[6]/div[7]/div/button"));
-                        Sleep(500);
+                        Utility.Sleep(500);
                         if (no_Order_Button.Displayed) {
                             richTextBox.Text += dropDown.SelectedOption.Text + "\n\n";
                             no_Order_Button.Click();
                         }
                         no_Order_Button.Click();
                     } catch (System.Exception) {
-                        Sleep();
+                        Utility.Sleep();
                         if (lastSelectedBranch != dropDown.SelectedOption.Text) {
                             Table_Operations(TABLE_XPATH, dropDown.SelectedOption.Text);
                         }
                     }
-                    Sleep();
+                    Utility.Sleep();
                 }
             } catch (System.Exception e) {
                 MessageBox.Show(e.Message.ToString());

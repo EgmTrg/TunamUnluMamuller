@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using TunamUnluMamuller.Settings;
+using TunamUnluMamuller.Setting;
 
 namespace TunamUnluMamuller.Branches {
     internal class Musluoglu : Web, IBranch {
@@ -9,13 +9,13 @@ namespace TunamUnluMamuller.Branches {
 
         public Musluoglu(Informations informations) : base(informations.DataGridView) { }
 
-        public static Informations Get_Informations(DataGridView dataGridView, RichTextBox richTextBox, string order_date) {
+        public static Informations Set_Informations(DataGridView dataGridView, RichTextBox richTextBox, string order_date) {
             return new Musluoglu.Informations {
                 Branch = Branch.Musluoglu,
                 DataGridView = dataGridView,
                 RichTextBox = richTextBox,
-                Login_URL = Web.WebSites.Musluoglu_Giris_Url,
-                Reports_URL = Web.WebSites.Musluoglu_Raporlar_Url,
+                Login_URL = Web.WebSitesURLs.Musluoglu_Giris_Url,
+                Reports_URL = Web.WebSitesURLs.Musluoglu_Raporlar_Url,
 
                 Username = "sistem@musluoglusiparis.com",
                 Password = "muslu",

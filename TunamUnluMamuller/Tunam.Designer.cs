@@ -45,11 +45,11 @@
             this.settings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showBrowser_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showCMD_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.musluoğluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.istanbulBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ankaraBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.currentUser_toolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -250,6 +250,14 @@
             this.showCMD_ToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.SettingsCheckStateController_CheckStateChanged);
             this.showCMD_ToolStripMenuItem.Click += new System.EventHandler(this.settings_ToolStripMenuItem_Click);
             // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Enabled = false;
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
             // musluoğluToolStripMenuItem
             // 
             this.musluoğluToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -284,13 +292,6 @@
             this.currentUser_toolStripLabel.Name = "currentUser_toolStripLabel";
             this.currentUser_toolStripLabel.Size = new System.Drawing.Size(97, 22);
             this.currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: ";
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.testToolStripMenuItem.Text = "Test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // Tunam
             // 

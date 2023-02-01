@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using TunamUnluMamuller.Properties;
 
-namespace TunamUnluMamuller.Settings {
+namespace TunamUnluMamuller.Setting {
     internal static class AppSettings {
         public static string Current_User { get; set; }
         public static CheckState ShowBrowser { get; set; }
@@ -15,6 +15,18 @@ namespace TunamUnluMamuller.Settings {
             {"admin","1234" },
             {"egemen","789" },
         };
+
+        public static List<string> List_Istanbul() {
+            List<string> istanbul = Resources.Istanbul.Split(' ').ToList();
+            Istanbul_Musluoglu = istanbul;
+            return istanbul;
+        }
+
+        public static List<string> List_Ankara() {
+            List<string> ankara = Resources.Ankara.Split(' ').ToList();
+            Ankara_Musluoglu = ankara;
+            return ankara;
+        }
 
         public static class SettingsFromResources {
             //public static string Settings_TXTPath { get { return "..\\..\\settings.txt"; } }

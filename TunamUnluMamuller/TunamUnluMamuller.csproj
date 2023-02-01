@@ -115,6 +115,13 @@
     </Compile>
     <Compile Include="Scripts\AppSettings.cs" />
     <Compile Include="Scripts\ExcelOperations.cs" />
+    <Compile Include="Scripts\Utility.cs" />
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tunam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tunam.resx">
       <DependentUpon>Tunam.cs</DependentUpon>

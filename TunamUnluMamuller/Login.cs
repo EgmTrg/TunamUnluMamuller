@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using TunamUnluMamuller.Settings;
+using TunamUnluMamuller.Setting;
 
 namespace TunamUnluMamuller {
     public partial class Login : Form {
