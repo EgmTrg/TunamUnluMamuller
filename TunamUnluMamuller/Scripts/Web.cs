@@ -2,26 +2,24 @@
 using System.Collections.Generic;
 using TunamUnluMamuller.Setting;
 using TunamUnluMamuller.Scripts;
+using TunamUnluMamuller.Brands;
 using OpenQA.Selenium.Chrome;
 using System.Windows.Forms;
 using OpenQA.Selenium;
+using System;
 
 namespace TunamUnluMamuller {
-    internal abstract class Web {
-        public Web(DataGridView dataGridView) => SetupWebDriver(dataGridView);
-
-        public const string TABLE_XPATH = "//*[@id=\"example\"]";
+    public class Web {
+        public Web(DataGridView dataGridView) {
+            SetupWebDriver(dataGridView);
+        }
 
         #region Properties
 
-        public enum Branch { DilimBorek, Musluoglu }
         private IWebDriver driver;
         private ChromeOptions arguments;
         private ChromeDriverService service;
         private DataGridView dataGridView;
-
-        public string ORDER_DATE { get; set; }
-        public Branch branch { get; set; }
 
         public ChromeDriverService Service {
             get { return service; }
@@ -44,9 +42,8 @@ namespace TunamUnluMamuller {
         }
         #endregion
 
-
         public struct WebSitesURLs {
-            public static string DilimBorek_Giris_Url {
+            public static string DilimBorek_Login_Url {
                 get { return "https://dilimboreksiparis.com/giris.php"; }
             }
 
@@ -64,14 +61,12 @@ namespace TunamUnluMamuller {
         }
 
         #region SetupField
-
-        public void SetupWebDriver(DataGridView dataGridView) {
-            Output_DataGridView = dataGridView;
+        private void SetupWebDriver(DataGridView data) {
+            Output_DataGridView = data;
 
             arguments = new ChromeOptions();
             service = ChromeDriverService.CreateDefaultService();
 
-            // if you wanna hide webdriver ui, remove the comment sign below row.
             if (AppSettings.ShowBrowser == CheckState.Unchecked)
                 arguments.AddArgument("--headless");
             if (AppSettings.ShowCMD == CheckState.Unchecked)
@@ -81,96 +76,40 @@ namespace TunamUnluMamuller {
                 driver = new ChromeDriver(service, arguments);
             }
         }
+
         #endregion
-
-        public struct Informations {
-            internal List<string> Istanbul;
-            internal List<string> Ankara;
-
-            private Branch myVar;
-            private DataGridView dataGrid;
-            private RichTextBox richTextBox;
-
-            #region PrivProp
-            private string username;
-            private string password;
-            private string login_url;
-            private string reports_url;
-            private string order_Date;
-            #endregion
-
-            public string OrderDate {
-                get { return order_Date; }
-                set { order_Date = value; }
-            }
-
-            public string Username {
-                get { return username; }
-                set { username = value; }
-            }
-
-            public string Password {
-                get { return password; }
-                set { password = value; }
-            }
-
-            public string Login_URL {
-                get { return login_url; }
-                set { login_url = value; }
-            }
-
-            public string Reports_URL {
-                get { return reports_url; }
-                set { reports_url = value; }
-            }
-
-            public DataGridView DataGridView {
-                get { return dataGrid; }
-                set { dataGrid = value; }
-            }
-
-            public RichTextBox RichTextBox {
-                get { return richTextBox; }
-                set { richTextBox = value; }
-            }
-
-            public Branch Branch {
-                get { return myVar; }
-                set { myVar = value; }
-            }
-        }
-
         #region WebMethods
-        public virtual bool Start(Informations info) {
+
+        public const string TABLE_XPATH = "//*[@id=\"example\"]";
+
+        public bool Start(Brand.Informations info) {
             driver.Navigate().GoToUrl(info.Login_URL);
             Login(info.Username, info.Password);
-            Utility.Sleep();
-
+            Utility.ThreadSleep();
             driver.Navigate().GoToUrl(info.Reports_URL);
-
-            Utility.Sleep();
-
-            bool result = DropDown_Operations("//*[@id=\"getir\"]/div[1]/div[2]/select", info.RichTextBox);
+            Utility.ThreadSleep();
+            bool result = DropDown_Operations("//*[@id=\"getir\"]/div[1]/div[2]/select", info.NoOrderTextArea, info.OrderDate);
             return result;
         }
 
         private void Login(string username, string password) {
             //WebDriverWait
-            Utility.Sleep();
+            Utility.ThreadSleep();
             Driver.FindElement(By.Name("kadi")).SendKeys(username);
             Driver.FindElement(By.Name("sifre")).SendKeys(password);
             Driver.FindElement(By.XPath("//*[@id=\"validate-form\"]/div[3]/div/button")).Click();
         }
 
-        public bool DropDown_Operations(string dropDown_xPath, RichTextBox richTextBox) {
+        public bool DropDown_Operations(string dropDown_xPath, RichTextBox richTextBox,string orderDate) {
             try {
                 string lastSelectedBranch = "";
                 SelectElement dropDown = new SelectElement(Driver.FindElement(By.XPath(dropDown_xPath)));
                 IWebElement bringData_Button = Driver.FindElement(By.XPath("//*[@id=\"getir\"]/div[4]/button"));
-                Driver.FindElement(By.Name("tarih")).SendKeys(ORDER_DATE);
-                Driver.FindElement(By.Name("tarih2")).SendKeys(ORDER_DATE);
+                Driver.FindElement(By.Name("tarih")).SendKeys(orderDate);
+                Driver.FindElement(By.Name("tarih2")).SendKeys(orderDate);
 
                 for (int branch_index = 1; branch_index <= dropDown.Options.Count; branch_index++) {
+                    // check selected utility.pullbranches value in dropdown.selectedoption.text
                     try {
                         lastSelectedBranch = dropDown.SelectedOption.Text;
                         dropDown.SelectByIndex(branch_index);
@@ -184,12 +123,12 @@ namespace TunamUnluMamuller {
                         }
                         no_Order_Button.Click();
                     } catch (System.Exception) {
-                        Utility.Sleep();
+                        Utility.ThreadSleep();
                         if (lastSelectedBranch != dropDown.SelectedOption.Text) {
                             Table_Operations(TABLE_XPATH, dropDown.SelectedOption.Text);
                         }
                     }
-                    Utility.Sleep();
+                    Utility.ThreadSleep();
                 }
             } catch (System.Exception e) {
                 MessageBox.Show(e.Message.ToString());

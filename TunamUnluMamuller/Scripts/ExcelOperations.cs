@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Drawing;
 using Microsoft.Office.Interop.Excel;
+using TunamUnluMamuller.Scripts;
 
 namespace TunamUnluMamuller {
     internal class ExcelOperations {
@@ -32,11 +33,10 @@ namespace TunamUnluMamuller {
 
         #region Variables
         private static int DatasRowCount = 100;
-        public static Branches branch;
-        public enum Branches { DilimBorek, Musluoglu }
+
         #endregion
 
-        public static void ExportWithExcel(DataGridView dataGrid, Branches branch) {
+        public static void ExportWithExcel(DataGridView dataGrid, Utility.Branches branch) {
             int column = 1;
             int row = 1;
             excel_App = new Excel.Application();
@@ -65,7 +65,7 @@ namespace TunamUnluMamuller {
             DoPivot(branch);
         }
 
-        public static void DoPivot(Branches branch) {
+        public static void DoPivot(Utility.Branches branch) {
             // Initialize Excel App
             Excel.Application app = Excel_App;
 
@@ -75,7 +75,7 @@ namespace TunamUnluMamuller {
             sheet.Cells.EntireColumn.AutoFit();
 
             // Initialize Range for Pivot
-            string range = branch == Branches.DilimBorek ? $"A1:F{DatasRowCount}" : $"A1:E{DatasRowCount}";
+            string range = branch == Utility.Branches.DilimBorek ? $"A1:F{DatasRowCount}" : $"A1:E{DatasRowCount}";
             Range pivotData_range = sheet.Range[range];
 
             Worksheet pivotSheet = new Worksheet();

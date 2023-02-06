@@ -1,5 +1,6 @@
-﻿using TunamUnluMamuller.Branches;
+﻿using TunamUnluMamuller.Brands;
 using TunamUnluMamuller.Setting;
+using TunamUnluMamuller.Scripts;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System;
@@ -7,7 +8,7 @@ using System;
 namespace TunamUnluMamuller {
     public partial class Tunam : Form {
 
-        private Web.Informations webInfo;
+        private Brand.Informations brand_Information;
         private Web web;
 
         public Tunam() {
@@ -45,24 +46,35 @@ namespace TunamUnluMamuller {
             clear_button.PerformClick();
             string order_date = dateTimePicker1.Value.AddDays(-1).ToShortDateString();
 
-            if (dilimBorek_radioButton.Checked)
-                webInfo = DilimBorek.Set_Informations(dataGridView1, richTextBox1, order_date);
-            else if (musluoglu_radioButton.Checked)
-                webInfo = Musluoglu.Set_Informations(dataGridView1, richTextBox1, order_date);
 
-            if (webInfo.Branch == Web.Branch.DilimBorek)
-                web = new DilimBorek(webInfo);
-            else if (webInfo.Branch == Web.Branch.Musluoglu)
-                web = new Musluoglu(webInfo);
+            if (dilimBorek_radioButton.Checked) {
+                brand_Information = DilimBorek.Set_Informations(dataGridView1, richTextBox1, order_date);
+            } else if (musluoglu_radioButton.Checked) {
+                brand_Information = Musluoglu.Set_Informations(dataGridView1, richTextBox1, order_date, Utility.pullBranches);
+                DetectPullBranches();
+            }
 
-            web.ORDER_DATE = order_date;
+            if (brand_Information.SelectedBrand == Brand.Brands.DilimBorek)
+                web = new DilimBorek(brand_Information).StartWebProcess();
+            else if (brand_Information.SelectedBrand == Brand.Brands.Musluoglu)
+                web = new Musluoglu(brand_Information).StartWebProcess();
 
-            if (web.Start(webInfo))
+            if (web.Start(brand_Information))
                 MessageBox.Show("Veri çekme işlemi başarıyla tamamlanmıştır.", "Verileri Çek!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Veri çekme işlemi bir hata sonucu tamamlanamadi.", "Verileri Çek!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             ChangeStatus(false);
+        }
+
+        private void DetectPullBranches() {
+            if (istanbulBayileriniDahilEtToolStripMenuItem.Checked)
+                brand_Information.PullBranches = Utility.PullBranches.Istanbul;
+            if (ankaraBayileriniDahilEtToolStripMenuItem.Checked)
+                brand_Information.PullBranches = Utility.PullBranches.Ankara;
+            if (istanbulBayileriniDahilEtToolStripMenuItem.Checked && ankaraBayileriniDahilEtToolStripMenuItem.Checked)
+                brand_Information.PullBranches = Utility.PullBranches.Both;
+
         }
 
         private void clear_button_Click(object sender, EventArgs e) {
@@ -80,10 +92,10 @@ namespace TunamUnluMamuller {
             if (result == DialogResult.OK) {
                 ChangeStatus(true);
                 if (dilimBorek_radioButton.Checked)
-                    ExcelOperations.ExportWithExcel(dataGridView1, ExcelOperations.Branches.DilimBorek);
+                    ExcelOperations.ExportWithExcel(dataGridView1, Utility.Branches.DilimBorek);
                 else
-                    ExcelOperations.ExportWithExcel(dataGridView1, ExcelOperations.Branches.Musluoglu);
-                
+                    ExcelOperations.ExportWithExcel(dataGridView1, Utility.Branches.Musluoglu);
+
                 MessageBox.Show("Excel aktarımı başarıyla tamamlanmıştır.", "Dışa Aktar!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ChangeStatus(false);
             }

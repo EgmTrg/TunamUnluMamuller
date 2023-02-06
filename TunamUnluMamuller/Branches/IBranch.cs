@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-
-namespace TunamUnluMamuller.Branches {
-    internal interface IBranch {
+﻿namespace TunamUnluMamuller.Brands {
+    internal interface IBrand {
+        Web StartWebProcess();
     }
 }
