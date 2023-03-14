@@ -7,6 +7,7 @@ using System;
 
 namespace TunamUnluMamuller {
     public partial class Tunam : Form {
+        public static int DelayTime { get; private set; }
 
         private Brand.Informations brand_Information;
         private Web web;
@@ -19,6 +20,7 @@ namespace TunamUnluMamuller {
                 showBrowser_ToolStripMenuItem.Enabled = true;
                 testToolStripMenuItem.Enabled = true;
             }
+            toolStripComboBox1.SelectedIndex = 2;
         }
 
         private void Tunam_Load(object sender, EventArgs e) {
@@ -152,6 +154,10 @@ namespace TunamUnluMamuller {
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e) {
             new Settings().Show();
+        }
+
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            DelayTime = int.Parse((sender as ToolStripComboBox).Text.ToString());
         }
     }
 }

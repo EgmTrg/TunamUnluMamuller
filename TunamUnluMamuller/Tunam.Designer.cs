@@ -49,7 +49,12 @@
             this.musluoğluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.istanbulBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ankaraBayileriniDahilEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.currentUser_toolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -71,9 +76,9 @@
             this.main_panel.Controls.Add(this.exportToExcel_button);
             this.main_panel.Controls.Add(this.dataGridView1);
             this.main_panel.Controls.Add(this.run_button);
-            this.main_panel.Location = new System.Drawing.Point(0, 23);
+            this.main_panel.Location = new System.Drawing.Point(0, 28);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(811, 382);
+            this.main_panel.Size = new System.Drawing.Size(811, 377);
             this.main_panel.TabIndex = 0;
             // 
             // status_label
@@ -95,7 +100,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.richTextBox1.Location = new System.Drawing.Point(11, 204);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(306, 170);
+            this.richTextBox1.Size = new System.Drawing.Size(306, 165);
             this.richTextBox1.TabIndex = 30;
             this.richTextBox1.Text = "";
             // 
@@ -184,7 +189,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(323, 15);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 359);
+            this.dataGridView1.Size = new System.Drawing.Size(483, 354);
             this.dataGridView1.TabIndex = 22;
             // 
             // run_button
@@ -202,7 +207,12 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settings_toolStripDropDownButton,
-            this.currentUser_toolStripLabel});
+            this.toolStripSeparator3,
+            this.currentUser_toolStripLabel,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.toolStripComboBox1,
+            this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(819, 25);
@@ -264,7 +274,7 @@
             this.istanbulBayileriniDahilEtToolStripMenuItem,
             this.ankaraBayileriniDahilEtToolStripMenuItem});
             this.musluoğluToolStripMenuItem.Name = "musluoğluToolStripMenuItem";
-            this.musluoğluToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.musluoğluToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.musluoğluToolStripMenuItem.Text = "Musluoğlu";
             // 
             // istanbulBayileriniDahilEtToolStripMenuItem
@@ -287,11 +297,60 @@
             this.ankaraBayileriniDahilEtToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.SettingsCheckStateController_CheckStateChanged);
             this.ankaraBayileriniDahilEtToolStripMenuItem.Click += new System.EventHandler(this.settings_ToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
             // currentUser_toolStripLabel
             // 
             this.currentUser_toolStripLabel.Name = "currentUser_toolStripLabel";
             this.currentUser_toolStripLabel.Size = new System.Drawing.Size(97, 22);
             this.currentUser_toolStripLabel.Text = "Geçerli Kullanıcı: ";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(78, 22);
+            this.toolStripLabel1.Text = "Delay <MS> :";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.toolStripComboBox1.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "1000",
+            "1500",
+            "2000",
+            "2500",
+            "3000",
+            "3500",
+            "4000",
+            "4500",
+            "5000",
+            "5500",
+            "6000",
+            "6500",
+            "7000",
+            "7500",
+            "8000",
+            "8500",
+            "9000",
+            "9500",
+            "10000"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(80, 25);
+            this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
             // 
             // Tunam
             // 
@@ -340,6 +399,11 @@
         private System.Windows.Forms.ToolStripMenuItem istanbulBayileriniDahilEtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ankaraBayileriniDahilEtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }
 

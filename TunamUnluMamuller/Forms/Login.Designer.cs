@@ -80,9 +80,9 @@
             this.label1.Font = new System.Drawing.Font("Gabriola", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(7, -9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(352, 50);
+            this.label1.Size = new System.Drawing.Size(337, 50);
             this.label1.TabIndex = 4;
-            this.label1.Text = "TUNAM - Sipariş Dosyası Yöneticisi\r\n";
+            this.label1.Text = "TUNAM - Sipariş Dosya Yöneticisi\r\n";
             // 
             // exit_button
             // 

@@ -6,7 +6,6 @@ using TunamUnluMamuller.Brands;
 using OpenQA.Selenium.Chrome;
 using System.Windows.Forms;
 using OpenQA.Selenium;
-using System;
 
 namespace TunamUnluMamuller {
     public class Web {
@@ -85,22 +84,22 @@ namespace TunamUnluMamuller {
         public bool Start(Brand.Informations info) {
             driver.Navigate().GoToUrl(info.Login_URL);
             Login(info.Username, info.Password);
-            Utility.ThreadSleep();
+            Utility.Sleep(Tunam.DelayTime);
             driver.Navigate().GoToUrl(info.Reports_URL);
-            Utility.ThreadSleep();
+            Utility.Sleep(Tunam.DelayTime);
             bool result = DropDown_Operations("//*[@id=\"getir\"]/div[1]/div[2]/select", info.NoOrderTextArea, info.OrderDate);
             return result;
         }
 
         private void Login(string username, string password) {
             //WebDriverWait
-            Utility.ThreadSleep();
+            Utility.Sleep(Tunam.DelayTime);
             Driver.FindElement(By.Name("kadi")).SendKeys(username);
             Driver.FindElement(By.Name("sifre")).SendKeys(password);
             Driver.FindElement(By.XPath("//*[@id=\"validate-form\"]/div[3]/div/button")).Click();
         }
 
-        public bool DropDown_Operations(string dropDown_xPath, RichTextBox richTextBox,string orderDate) {
+        public bool DropDown_Operations(string dropDown_xPath, RichTextBox richTextBox, string orderDate) {
             try {
                 string lastSelectedBranch = "";
                 SelectElement dropDown = new SelectElement(Driver.FindElement(By.XPath(dropDown_xPath)));
@@ -114,7 +113,7 @@ namespace TunamUnluMamuller {
                         lastSelectedBranch = dropDown.SelectedOption.Text;
                         dropDown.SelectByIndex(branch_index);
                         bringData_Button.Click();
-                        Utility.Sleep(1000);
+                        Utility.Sleep(Tunam.DelayTime);
                         IWebElement no_Order_Button = Driver.FindElement(By.XPath("/html/body/div[6]/div[7]/div/button"));
                         Utility.Sleep(500);
                         if (no_Order_Button.Displayed) {
@@ -123,12 +122,12 @@ namespace TunamUnluMamuller {
                         }
                         no_Order_Button.Click();
                     } catch (System.Exception) {
-                        Utility.ThreadSleep();
+                        Utility.Sleep(Tunam.DelayTime);
                         if (lastSelectedBranch != dropDown.SelectedOption.Text) {
                             Table_Operations(TABLE_XPATH, dropDown.SelectedOption.Text);
                         }
                     }
-                    Utility.ThreadSleep();
+                    Utility.Sleep(Tunam.DelayTime);
                 }
             } catch (System.Exception e) {
                 MessageBox.Show(e.Message.ToString());
