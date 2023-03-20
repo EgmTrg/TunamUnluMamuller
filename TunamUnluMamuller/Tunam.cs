@@ -7,7 +7,6 @@ using System;
 
 namespace TunamUnluMamuller {
     public partial class Tunam : Form {
-        public static int DelayTime { get; private set; }
 
         private Brand.Informations brand_Information;
         private Web web;
@@ -157,7 +156,7 @@ namespace TunamUnluMamuller {
         }
 
         private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e) {
-            DelayTime = int.Parse((sender as ToolStripComboBox).Text.ToString());
+            AppSettings.DelayTime = int.Parse((sender as ToolStripComboBox).Text.ToString());
         }
     }
 }

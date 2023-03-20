@@ -10,8 +10,9 @@ namespace TunamUnluMamuller.Setting {
         public static CheckState ShowCMD { get; set; }
         public static List<string> Istanbul_Musluoglu { get; set; }
         public static List<string> Ankara_Musluoglu { get; set; }
+		public static int DelayTime { get; internal set; }
 
-        public static readonly Dictionary<string, string> Users = new Dictionary<string, string>() {
+		public static readonly Dictionary<string, string> Users = new Dictionary<string, string>() {
             {"admin","1234" },
             {"egemen","789" },
         };

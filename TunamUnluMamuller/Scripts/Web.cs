@@ -84,16 +84,16 @@ namespace TunamUnluMamuller {
         public bool Start(Brand.Informations info) {
             driver.Navigate().GoToUrl(info.Login_URL);
             Login(info.Username, info.Password);
-            Utility.Sleep(Tunam.DelayTime);
+            Utility.Sleep(AppSettings.DelayTime);
             driver.Navigate().GoToUrl(info.Reports_URL);
-            Utility.Sleep(Tunam.DelayTime);
+            Utility.Sleep(AppSettings.DelayTime);
             bool result = DropDown_Operations("//*[@id=\"getir\"]/div[1]/div[2]/select", info.NoOrderTextArea, info.OrderDate);
             return result;
         }
 
         private void Login(string username, string password) {
             //WebDriverWait
-            Utility.Sleep(Tunam.DelayTime);
+            Utility.Sleep(AppSettings.DelayTime);
             Driver.FindElement(By.Name("kadi")).SendKeys(username);
             Driver.FindElement(By.Name("sifre")).SendKeys(password);
             Driver.FindElement(By.XPath("//*[@id=\"validate-form\"]/div[3]/div/button")).Click();
@@ -113,7 +113,7 @@ namespace TunamUnluMamuller {
                         lastSelectedBranch = dropDown.SelectedOption.Text;
                         dropDown.SelectByIndex(branch_index);
                         bringData_Button.Click();
-                        Utility.Sleep(Tunam.DelayTime);
+                        Utility.Sleep(AppSettings.DelayTime);
                         IWebElement no_Order_Button = Driver.FindElement(By.XPath("/html/body/div[6]/div[7]/div/button"));
                         Utility.Sleep(500);
                         if (no_Order_Button.Displayed) {
@@ -122,12 +122,12 @@ namespace TunamUnluMamuller {
                         }
                         no_Order_Button.Click();
                     } catch (System.Exception) {
-                        Utility.Sleep(Tunam.DelayTime);
+                        Utility.Sleep(AppSettings.DelayTime);
                         if (lastSelectedBranch != dropDown.SelectedOption.Text) {
                             Table_Operations(TABLE_XPATH, dropDown.SelectedOption.Text);
                         }
                     }
-                    Utility.Sleep(Tunam.DelayTime);
+                    Utility.Sleep(AppSettings.DelayTime);
                 }
             } catch (System.Exception e) {
                 MessageBox.Show(e.Message.ToString());

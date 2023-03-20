@@ -123,7 +123,6 @@
     <Compile Include="Forms\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Scripts\WebBase.cs" />
     <Compile Include="Tunam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +218,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TunamUnluMamuller\Tunam\Tunam.csproj">
+      <Project>{1993e91e-eeae-4704-93b6-d99572e6b141}</Project>
+      <Name>Tunam</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets" Condition="Exists('packages\Selenium.WebDriver.4.8.1\build\Selenium.WebDriver.targets')" />
