@@ -115,7 +115,7 @@ namespace TunamUnluMamuller {
                         bringData_Button.Click();
                         Utility.Sleep(AppSettings.DelayTime);
                         IWebElement no_Order_Button = Driver.FindElement(By.XPath("/html/body/div[6]/div[7]/div/button"));
-                        Utility.Sleep(500);
+                        Utility.Sleep(AppSettings.DelayTime);
                         if (no_Order_Button.Displayed) {
                             richTextBox.Text += dropDown.SelectedOption.Text + "\n\n";
                             no_Order_Button.Click();
